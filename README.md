@@ -89,8 +89,6 @@ course-selection-platform/
 ├── frontend/
 │   ├── html_css_js/        # Frontend files
 │   └── assets/             # Images, icons
-├── crawler/
-│   └── selenium_spider.py  # Course scraper
 ├── sql/
 │   └── schema.sql          # Table creation & seed data
 ├── report/
