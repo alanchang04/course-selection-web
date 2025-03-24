@@ -1,0 +1,758 @@
+:root {
+    /*全局變量*/
+    --td-round: 8px;
+    --over_lap: table-row;
+    --onhover-accent: #dfdf9f;
+}
+
+* {
+    /*所有元素*/
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Arial, 'Noto Sans';
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.container-fluid {
+    background-image: url(images/bg.jpg);
+    background-size: auto;
+}
+
+body {
+    background-color: #fefefe;
+    height: 100vh;
+    width: 100vw;
+}
+
+td {
+    text-align: center;
+    border-radius: var(--td-round);
+    background-color: #eeeeee29;
+}
+
+ul {
+    padding: 0px 20px 0px 20px;
+    font-weight: bold;
+}
+
+li {
+    cursor: grab;
+}
+
+/*課程名稱的css*/
+.class_url {
+    color: #000;
+    text-decoration: none;
+}
+
+.class_url:hover {
+    color: rgb(55, 120, 173);
+    text-decoration: underline;
+}
+
+/*不明*/
+.table th {
+    position: relative;
+}
+
+/*課表星期*/
+.schedule_tr {
+    background-color: #e2e2e2c7;
+    border: 2px solid #fefefe;
+    height: 25px;
+}
+
+/*課表時間*/
+.schedule_th {
+    border: 2px solid #ffffff;
+    text-align: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 6px 10px;
+    border: unset;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+button:hover {
+    color: #e8e8e8;
+}
+
+button:hover::before {
+    width: 100%;
+}
+
+
+input {
+    padding: 6px 10px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 14px;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: background-color 250ms, color 250ms;
+    overflow: hidden;
+}
+
+select {
+    padding: 6px 10px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    background: #e8e8e8;
+    position: relative;
+    font-size: 14px;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: background-color 250ms, color 250ms;
+    overflow: hidden;
+}
+
+/*不明*/
+.resizable {
+    position: relative;
+}
+
+/*不明*/
+.resizer {
+    /* Displayed at the right side of column */
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: -8px;
+    width: 10px;
+    cursor: col-resize;
+    user-select: none;
+    border-right: 3px solid #d1d1d1;
+    margin-left: 0px;
+    margin-right: 8px;
+    border-radius: 1px;
+    opacity: 0;
+}
+
+/*不明*/
+.cell_teacher {
+    text-align: left;
+}
+
+/*爬下來的課程資料列*/
+.classes_row {
+    background-color: #efefef;
+    display: table-row;
+    z-index: 1;
+    padding-top: 10px;
+    font-weight: bold;
+    width: 100%;
+}
+
+/*不明*/
+.classes_row.export {
+    background-color: #efefef;
+    display: table-row;
+    z-index: 1;
+    padding-top: 10px;
+    font-weight: bold;
+    width: 100%;
+    height: 40px;
+}
+
+/*就hover*/
+.classes_row.onhover {
+    background-color: var(--onhover-accent);
+    display: table-row;
+    z-index: 3;
+    padding-top: 10px;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.1s;
+}
+
+/*衝堂顯示*/
+.classes_row.overlapping {
+    background-color: #f7f7f7;
+    opacity: 60%;
+    display: var(--over_lap);
+    z-index: 1;
+}
+
+/*所有課程搜尋器*/
+.search_container {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    position: sticky;
+    background-color: #ffffffcf;
+    backdrop-filter: blur(8px);
+    box-sizing: border-box;
+}
+
+/*點開的dropdown選單 原本是空格我改成底線*/
+.dropdown_show {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ced4da;
+    font-size: 1rem;
+}
+
+/*searchbar 的class*/
+.form-control {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ced4da;
+    font-size: 20px;
+}
+
+.list_container {
+    padding-top: 10px;
+    position: sticky;
+    background-color: #ffffffcf;
+    backdrop-filter: blur(8px);
+}
+
+/*標頭整排 課程名稱 時間...等*/
+.list_lead_container {
+    display: table-row;
+    width: 100%;
+    position: sticky;
+    height: 50px;
+    top: 0px;
+    z-index: 1;
+    background-color: #ffffffcf;
+    backdrop-filter: blur(8px);
+}
+
+/*單個標頭*/
+#list_head {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-weight: bold;
+    align-items: center;
+}
+
+
+
+/*不明*/
+.resizer:hover,
+.resizing {
+    border-right: 3px solid rgb(199, 223, 226);
+    opacity: 100%;
+}
+
+/*課表中間的格子*/
+.schedule_div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+}
+
+/*不明*/
+.addedclass {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ececcd;
+    font-size: 13px;
+    justify-content: center;
+    border-radius: var(--td-round);
+    padding: 8px;
+    z-index: 0;
+    transition: 0.1s;
+}
+
+/*不明*/
+.addedclass.onhover {
+    align-items: center;
+    background-color: var(--onhover-accent);
+    font-size: 13px;
+    justify-content: center;
+    border-radius: var(--td-round);
+    padding: 8px;
+    transform: scale(1.005);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 0.2s;
+    z-index: 3;
+
+}
+
+/*不明*/
+.addedclass.pending {
+    background-color: #cacef3;
+    opacity: 70%;
+    height: 100%;
+    font-size: 13px;
+    text-align: center;
+    position: relative;
+    vertical-align: top;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--td-round);
+    padding: 8px;
+}
+
+/*所有課程 篩選器的id*/
+.filter_content {
+    display: none;
+    position: relative;
+    top: 5px;
+    margin-bottom: 10px;
+    height: auto;
+    max-height: 800%;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #eaeaea;
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+
+/*所有課程 篩選器的class*/
+.function_window_content {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    max-height: 800%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #e0e8f0;
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+
+.filter_content.button {
+    text-align: center;
+}
+
+/*不明*/
+.select_filter_content {
+    position: absolute;
+    right: 23%;
+    height: 200px;
+    width: 150px;
+    background-color: #fafafafa;
+    backdrop-filter: blur(5px);
+    margin: 3px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    text-align: left;
+    font-size: 18px;
+    overflow: auto;
+}
+
+/*篩選器的加號*/
+.add_filter_btn {
+    background-color: rgba(0, 0, 0, 0);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin: 2px;
+    border-radius: 100px;
+    transition: 0.1s;
+}
+
+.add_filter_btn:hover {
+    background-color: rgba(212, 212, 212, 0.5);
+    transition: 0.1s;
+}
+
+/*已選擇的篩選row*/
+.Filter_row {
+    position: relative;
+    display: flex;
+    padding: 5px 10px 5px 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*篩選器的選項*/
+.filter_select_btn {
+    background-color: #ffffff00;
+    border-radius: 5px;
+}
+
+/*刪除篩選按鈕*/
+.Filter_del_btn {
+    display: flex;
+    padding: 0px;
+    right: 0px;
+}
+
+.filter_select_btn:hover {
+    background-color: #d4d4d49f;
+}
+
+/*篩選器已選擇項目的名稱*/
+.Filter_lable {
+    font-size: 16px;
+    padding: 5px 15px 5px 0px;
+    display: inline-block;
+}
+
+/*不明*/
+.chart_container {
+    padding: 5px;
+}
+
+/*右邊某層大div*/
+.function_container {
+    padding: 0px 5px 5px 5px;
+}
+
+/*課表大div*/
+.schedule_content {
+    border: 0px solid #ffffff;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff00;
+    max-width: 1000px;
+    /* min-width: 500px; */
+}
+
+/*應該適用於小螢幕但是我不確定*/
+.col-md {
+    display: flex;
+    margin-right: 8px;
+    padding: 5px;
+    height: 100%;
+    overflow: auto;
+    justify-content: center;
+    min-height: 150px;
+}
+
+/*不明*/
+.Filter_logic {
+    display: inline-block;
+    padding-right: 15px;
+    width: 105px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #efefef;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(167, 192, 192);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(139, 157, 160);
+}
+
+/*找不到ui*/
+.ui-state-default {
+    font-weight: bold;
+    list-style-type: none;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 30px;
+    background-color: #ffffffcf;
+    padding: 10px 0px 10px 10px;
+
+}
+
+.ui-state-default:hover {
+    list-style-type: none;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 30px;
+    background-color: #f0ffd8bd;
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 20px 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.ui-state-highlight {
+    list-style-type: none;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 30px;
+    background-color: #d1e3e7;
+    padding: 10px;
+    border-style: none;
+}
+
+
+
+.ui-state-disabled {
+    opacity: 80%;
+}
+
+/*大標 可以再改*/
+.nav-tabs {
+    font-size: 30px;
+    fill: #7a86ff;
+    --bs-nav-tabs-link-active-bg: #491b48;
+    --bs-nav-tabs-link-active-color: #fff;
+    --bs-nav-link-color: #000;
+    --bs-nav-bg: #fff;
+}
+
+.nav-tabs .active {
+    fill: var(--bs-nav-tabs-link-active-color);
+
+}
+
+/*中間垂直線*/
+.schedule_line {
+    /* display: flex; */
+    height: 40%;
+    padding: 1px;
+    border-radius: 10px;
+    background-color: #ebebeb;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.link0 {
+    font-size: small;
+    align-items: flex-end;
+    justify-content: center;
+    padding-right: 20%;
+    padding-left: 3%;
+}
+
+.link1 {
+    font-size: small;
+    align-items: flex-end;
+    padding-left: 7%;
+
+}
+
+/*學年*/
+.class_set_sel {
+    border-radius: 20px;
+    background-color: #ffffff;
+    margin-right: 10px;
+    border: 1px solid #ced4da;
+    color: #000;
+}
+
+.value_input {
+    width: 40px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+.row {
+    width: 100%;
+    display: flex
+}
+
+.col-lg {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+}
+
+.left {
+    width: 120%;
+}
+
+.moveblog {
+    padding-left: 6%;
+    border-radius: 5px;
+    height: 20px;
+}
+
+#search {
+
+    width: 15%;
+}
+
+#newCourseId {
+
+    width: 25%;
+}
+
+#grade {
+
+    width: 15%;
+}
+
+#del {
+    width: 15%;
+}
+
+.course_info {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.course_info span {
+    padding: 5px;
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+.Id {
+    width: 10%;
+}
+
+.cId {
+    width: 23%;
+}
+
+.tC {
+    width: 34%;
+}
+
+.grade {
+    width: 33%;
+}
+
+.department {
+    width: 15%;
+}
+
+.compulsory-elective {
+    width: 4%;
+}
+
+.credit {
+    width: 4%;
+}
+
+.teacher {
+    width: 13%;
+}
+
+.programs {
+    width: 18%;
+}
+
+.emi {
+    width: 8%;
+}
+
+#message-container {
+    position: fixed;
+    /* 將訊息容器固定在視窗中 */
+    top: 50%;
+    /* 與視窗頂部距離為視窗高度的一半 */
+    left: 50%;
+    /* 與視窗左側距離為視窗寬度的一半 */
+    transform: translate(-50%, -50%);
+    /* 使訊息容器居中 */
+    background-color: #fff;
+    /* 背景顏色 */
+    padding: 20px;
+    /* 內邊距 */
+    border: 1px solid #ccc;
+    /* 邊框 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* 陰影效果 */
+    z-index: 9999;
+    /* 設置 z-index 以確保在其他元素之上 */
+}
+
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 550px) {
+    .col-lg {
+        flex-direction: column;
+    }
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
