@@ -13,7 +13,7 @@ A full-stack web application designed to enhance the course selection experience
 - ✍️ Comment on professors and view others' reviews
 - 📈 Manage course history, grades, and credits
 - 🔐 Admin page for managing all tables (account, course info, permissions)
-- 🧠 Built-in crawler to update official course data (via `selenium`)
+- 🧠 Built-in crawler to update official course data (but it was done by 方敬棠, not include here)
 
 ---
 
@@ -24,7 +24,7 @@ A full-stack web application designed to enhance the course selection experience
 | Frontend | PHP (UI layout & logic), HTML, CSS, JavaScript |
 | Backend  | PHP (DB logic), Flask (for ML/NLP chatbot logic) |
 | Database | MySQL |
-| Automation | Python + Selenium (crawler for NSYSU course site) | (but it was done by 方敬棠)
+| Automation | Python + Selenium (crawler for NSYSU course site) | 
 
 ---
 
