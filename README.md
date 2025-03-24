@@ -2,6 +2,8 @@
 
 A full-stack web application designed to enhance the course selection experience for National Sun Yat-sen University (NSYSU) students. This project improves upon the official system by integrating **user reviews**, **course search**, and **admin control**, enabling students to make informed choices based on real user feedback.
 
+> ⚠️ **Note**: This project uses **PHP to render UI pages** (server-side HTML templates) while also handling **backend logic** such as database access. In this structure, PHP serves as both the frontend and backend engine.
+
 ---
 
 ## 🌐 Overview
@@ -11,7 +13,7 @@ A full-stack web application designed to enhance the course selection experience
 - ✍️ Comment on professors and view others' reviews
 - 📈 Manage course history, grades, and credits
 - 🔐 Admin page for managing all tables (account, course info, permissions)
-- 🧠 Built-in crawler to update official course data (Not finished by me)
+- 🧠 Built-in crawler to update official course data (via `selenium`)
 
 ---
 
@@ -19,10 +21,25 @@ A full-stack web application designed to enhance the course selection experience
 
 | Layer | Stack |
 |-------|-------|
-| Frontend | HTML, CSS, JavaScript |
-| Backend  | PHP (server-side logic), Flask (for ML/NLP chatbot logic) |
+| Frontend | PHP (UI layout & logic), HTML, CSS, JavaScript |
+| Backend  | PHP (DB logic), Flask (for ML/NLP chatbot logic) |
 | Database | MySQL |
-| Automation | Python + Selenium (crawler for NSYSU course site) |
+| Automation | Python + Selenium (crawler for NSYSU course site) | (but it was done by 方敬棠)
+
+---
+
+## 📁 Project Structure
+
+| Folder | Description |
+|--------|-------------|
+| `1_index/` | Homepage and course listing interface |
+| `2_crud_course/` | Insert / edit / delete / search for courses & reviews |
+| `3_chatbox/` | Chatbot (Flask or PHP prototype) |
+| `4_auth/` | Login and signup system |
+| `5_admin/` | Admin dashboard and data management |
+| `sql/` | SQL schema and optional seed data |
+| `crawler/` | Python + Selenium scraper for official course site |
+| `report/` | Final project documentation (PDF) |
 
 ---
 
@@ -76,25 +93,6 @@ A full-stack web application designed to enhance the course selection experience
 - PHP ↔️ Python communication (Flask bridge attempted for chatbot)
 - Schema redesign during iteration (real-world data had duplicate course codes)
 - Handling CAPTCHA during scraping
-
----
-
-## 📁 Suggested Repository Structure
-
-```
-course-selection-platform/
-├── backend/
-│   ├── php/                 # All .php server-side logic
-│   ├── flask_api/          # (Optional) Flask chatbot
-├── frontend/
-│   ├── html_css_js/        # Frontend files
-│   └── assets/             # Images, icons
-├── sql/
-│   └── schema.sql          # Table creation & seed data
-├── report/
-│   └── DBFinalProject.pdf  # Full documentation
-├── README.md
-```
 
 ---
 
