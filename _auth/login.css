@@ -1,0 +1,166 @@
+body {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.whole {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(images/bg.jpg);
+    background-color: #0000006d;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: color;
+    color: #343434;
+    height: 100vh;
+}
+
+.nav a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.nav {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    z-index: 10;
+    background-color: black;
+    opacity: 0.5;
+}
+
+
+.navTitle {
+
+    padding-left: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.alink {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.alink a {
+    width: 24px;
+    height: 24px;
+    margin-right: 40px;
+}
+
+#link {
+    margin-right: 40px;
+}
+
+.navTitle button {
+    width: 30px;
+    height: 30px;
+    border-radius: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+    background-color: #343434;
+    border: 1px white solid;
+}
+
+.logo {
+    text-align: center;
+    margin: 4rem 0;
+    font-size: 6rem;
+    font-family: 'Pacifico', 'cursive';
+    color: antiquewhite;
+}
+
+.selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+    padding: 30px;
+    border: 1px white solid;
+    width: 400px;
+}
+
+.br {
+    height: 20px;
+    width: auto;
+}
+
+.red {
+    color: red;
+    padding-bottom: 20px;
+}
+
+.login_container {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    width: 50%;
+}
+
+.signlink a {
+    text-decoration: none;
+    color: lightblue;
+}
+
+.signlink a:hover {
+    text-decoration: underline;
+}
+
+.sub_but {
+    background-color: darkgray;
+    cursor: pointer;
+    width: 20%;
+}
+
+.display_but {
+    display: none;
+}
+
+/*RWD content*/
+@media(max-width:800px) {
+    .text {
+        width: 60%;
+    }
+
+}
+
+@media (max-width:600px) {
+    .text {
+        width: 80%;
+    }
+
+    .sub_but {
+        width: 40%;
+    }
+}
+
+/*.error {
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+ } */
