@@ -1,16 +1,12 @@
-# 🔐 Authentication Module
+# 🛠️ Admin Panel
 
-This module manages user access via login, logout, and signup processes.
+This admin interface enables table-level database operations via the web.Admin account is defined by us. Directly add in database
 
 ## 📌 Features
 
-- User registration with role (student/admin)
-- Session management
-- Redirect protection for unauthorized access
+- View/edit any DB table: student, courses, reviews, etc.
+- Keyword search within each table
+- Add/remove entries with live feedback
+- Admin-only access (session-controlled)
 
-## 📁 Common Files
 
-- `login.php`
-- `signup.php`
-- `logout.php`
-- `session_check.php`
