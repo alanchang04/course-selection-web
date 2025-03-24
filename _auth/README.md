@@ -1,6 +1,6 @@
 # 🔐 Authentication Module
 
-This module manages user access via login by specific account which is defined by us.
+This module manages user access via login, logout, and signup processes.
 
 ## 📌 Features
 
@@ -8,4 +8,9 @@ This module manages user access via login by specific account which is defined b
 - Session management
 - Redirect protection for unauthorized access
 
+## 📁 Common Files
 
+- `login.php`
+- `signup.php`
+- `logout.php`
+- `session_check.php`
